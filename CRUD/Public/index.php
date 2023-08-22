@@ -1,10 +1,9 @@
 <?php
 require_once "../App/database.php";
 use App\Database;
-// $db = new Database();
+$db = new Database();
 $title="Simple PHP CRUD Application";
-
-// $all_data = $db->getData();
+$all_data = $db->getData();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@ $title="Simple PHP CRUD Application";
 <body>
     <div class="container">
         <p class="lead my-5 text-center"><?php echo $title ?></p>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
@@ -32,18 +31,20 @@ $title="Simple PHP CRUD Application";
         </thead>
 
         <tbody>
+            <?php foreach($all_data as $data): ?>
             <tr>
-                <td>Kashif Hussain</td>
-                <td>kh9732494@gmail.com</td>
-                <td>12-04-2002</td>
+                <td><?php echo $data["name"] ?></td>
+                <td><?php echo $data["email"] ?></td>
+                <td><?php echo $data["dob"] ?></td>
                 <td>
                     <a href="add_edit.php" class="btn btn-warning">Edit</a>
                     <a href="#" class="btn btn-success">Delete</a>
                 </td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="add_edit.php" class="btn btn-secondary">Add Data</a>
+    <a href="add_edit.php" class="btn btn-dark">Add Data</a>
     
     </div>
 </body>

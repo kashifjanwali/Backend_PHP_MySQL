@@ -1,4 +1,18 @@
-<?php $title="Add / Edit Your Data" ?>
+<?php 
+require_once "../App/database.php";
+use App\Database;
+$db = new Database;
+$title = "Add / Edit Your Data";
+
+if($_POST) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $dob = $_POST['dob'];
+
+  $db->addData($name, $email, $dob);
+  header("Location: index.php");
+};
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +29,7 @@
     <div class="container">
         <p class="lead my-5 text-center"><?php echo $title ?></p>
 
-        <form method="get" class="form">
+        <form method="post" class="form">
     <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input type="text" class="form-control" id="name" name="name">
@@ -27,14 +41,15 @@
   </div>
 
   <div class="mb-3">
-    <label for="dob" class="form-label">Email</label>
+    <label for="dob" class="form-label">Date Of Birth</label>
     <input type="date" class="form-control" id="dob" name="dob">
   </div>
-    </form>
-<div>
-    <button class="btn btn-success">Save</button>
-    <button class="btn btn-danger">Cancel</button>
+
+  <div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-danger">Cancel</button>
     </div>
+    </form>
 </div>
 </body>
 </html>
