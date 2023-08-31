@@ -110,7 +110,7 @@ if ($id) {
 
                 <div>
                     <button type="submit" class="btn btn-success">Save</button>
-                    <button type="submit" class="btn btn-danger">Cancel</button>
+                    <a href="index.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
     </body>
