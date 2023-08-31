@@ -1,0 +1,17 @@
+a {
+    transition: transform 0.9s ease-in-out;
+    display: inline-block;
+}
+
+a:hover {
+    transform: scale(1.08);
+}
+
+a i {
+    transition: transform 0.5s ease;
+    display: inline-block;
+}
+
+a i:hover {
+    transform: scale(1.3);
+}
