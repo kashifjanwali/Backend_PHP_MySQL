@@ -10,6 +10,8 @@ class MostCent
         $this->conn = mysqli_connect("localhost", "root", "", "pak_top_betters");
     }
 
+
+    // READ
     function getRecord()
     {
         $query = "SELECT * FROM most_odi_cents";
@@ -18,6 +20,8 @@ class MostCent
         return $all_records;
     }
 
+    
+    // CREATE
     function addRecord($p_rank, $p_name, $p_cent)
     {
         $query = "INSERT INTO most_odi_cents(p_rank, p_name, p_cent)

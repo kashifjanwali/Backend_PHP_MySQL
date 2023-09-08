@@ -4,7 +4,7 @@ use Pak\MostCent;
 
 $new_rec = new MostCent();
 $all_records = $new_rec->getRecord();
-$title = "Simple PHP<br>CRUD(Create, Read, Update, Delete)<br>Application";
+$title = "Simple PHP CRUD App";
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $title = "Simple PHP<br>CRUD(Create, Read, Update, Delete)<br>Application";
     <body>
         <div class="container py-2">
             <p class="lead text-center">
-                <?php echo $title; ?>
+                <?php echo "Simple PHP CRUD(Create, Read, Update, Delete) Application"; ?>
             </p>
             <hr>
             <a href="./add_edit.php" class="btn btn-success fw-bold" style="margin-left: 280px">Add Record</a>
@@ -61,7 +61,7 @@ $title = "Simple PHP<br>CRUD(Create, Read, Update, Delete)<br>Application";
                             </td>
                             <td>
                                 <a class="text-dark" href="add_edit.php?p_id=<?php echo $records['p_id']; ?>"><i class="bi bi-pencil-square"></i></a>
-                                <a class="text-dark mx-3" href="delete.php?p_id=<?php echo $records['p_id']; ?>"><i class="bi bi-trash"></i></a>
+                                <a class="text-danger mx-3" href="delete.php?p_id=<?php echo $records['p_id']; ?>"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

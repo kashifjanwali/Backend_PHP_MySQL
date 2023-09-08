@@ -12,21 +12,19 @@ if ($_POST) {
     $p_name = $_POST['p_name'];
     $p_cent = $_POST['p_cent'];
 
-    if($p_id){
+    if ($p_id) {
         $new_rec->updateRecord($p_id, $p_rank, $p_name, $p_cent);
-    }
-    else {
-    $new_rec->addRecord($p_rank, $p_name, $p_cent);
+    } else {
+        $new_rec->addRecord($p_rank, $p_name, $p_cent);
     }
     header("Location: index.php");
     exit();
 }
 
 $p_id = $_GET['p_id'] ?? null;
-if($p_id) {
+if ($p_id) {
     $pid_data = $new_rec->getPid($p_id);
-}
-else{
+} else {
     $pid_data = $new_rec = array();
 }
 ?>
@@ -59,25 +57,31 @@ else{
             <hr>
 
             <form method="post" class="form py-3">
+                <!-- Rank -->
                 <div class="mb-4">
                     <label for="rank" class="form-label d-block mx-auto w-25 lead">Player's Ranking</label>
-                    <input type="text" id="rank" name="p_rank" class="form-control w-25 mx-auto" placeholder="1" value="<?php echo $pid_data['p_rank'] ?? null ?>">
+                    <input type="number" id="rank" name="p_rank" class="form-control w-25 mx-auto" placeholder="1"
+                        value="<?php echo $pid_data['p_rank'] ?? null ?>">
                 </div>
 
+                <!-- Name -->
                 <div class="mb-4">
                     <label for="name" class="form-label d-block mx-auto w-25 lead">Player's Name</label>
-                    <input type="text" id="name" name="p_name" class="form-control w-25 mx-auto" placeholder="Babar Azam" value="<?php echo $pid_data['p_name'] ?? null ?>">
+                    <input type="text" id="name" name="p_name" class="form-control w-25 mx-auto"
+                        placeholder="Babar Azam" value="<?php echo $pid_data['p_name'] ?? null ?>">
                 </div>
 
+                <!-- Centries -->
                 <div class="mb-4">
                     <label for="cent" class="form-label d-block mx-auto w-25 lead">ODI Hundreds</label>
-                    <input type="text" id="cent" name="p_cent" class="form-control w-25 mx-auto" placeholder="19" value="<?php echo $pid_data['p_cent'] ?? null ?>">
+                    <input type="number" id="cent" name="p_cent" class="form-control w-25 mx-auto" placeholder="19"
+                        value="<?php echo $pid_data['p_cent'] ?? null ?>">
                 </div>
 
                 <input type="hidden" name="p_id" value="<?php echo $p_id ?>">
                 <div class="w-25 mx-auto">
-                <button type="submit" class="btn btn-warning">Save</button>
-                <a href="./index.php" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-warning">Save</button>
+                    <a href="./index.php" class="btn btn-danger">Cancel</a>
                 </div>
             </form>
         </div>
