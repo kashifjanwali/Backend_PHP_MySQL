@@ -38,14 +38,16 @@ $all_names = $new_name->getName();
             </thead>
 
             <tbody class="lead">
-<?php foreach($all_names as $name): ?>
-                <tr>
-                    <td><?php echo $name['name']; ?></td>
-                    <td>
-                        <a href="addEdit.php" class="btn btn-success">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
+                <?php foreach ($all_names as $name): ?>
+                    <tr>
+                        <td>
+                            <?php echo $name['name']; ?>
+                        </td>
+                        <td>
+                            <a href="addEdit.php?id=<?php echo $name['id'] ?>" class="btn btn-success">Edit</a>
+                            <a href="delete.php?id=<?php echo $name['id']; ?>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

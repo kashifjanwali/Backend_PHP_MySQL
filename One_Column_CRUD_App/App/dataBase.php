@@ -1,5 +1,4 @@
 <?php
-
 namespace Province;
 
 class City
@@ -11,6 +10,7 @@ class City
     }
 
 
+    // Create
     function addName($pn)
     {
         $query = "INSERT INTO P_Name(name) 
@@ -19,6 +19,7 @@ class City
     }
 
 
+    // Read
     function getName()
     {
         $query = "SELECT * FROM P_Name";
@@ -26,12 +27,32 @@ class City
     }
 
 
+    // get ID
     function getPid($p_id)
     {
-        $query = "SELECT * FROM P_Name WHERE p_id = $p_id";
+        $query = "SELECT * FROM P_Name WHERE id = $p_id";
         $record = mysqli_query($this->conn, $query);
         $all_records = mysqli_fetch_assoc($record);
         return $all_records;
+    }
+
+
+    // Delete
+    function deleteName($id)
+    {
+        $qry = "DELETE FROM P_Name WHERE id = $id";
+        mysqli_query($this->conn, $qry);
+    }
+
+
+    // Update
+    function updateName($id, $name)
+    {
+        $qry = "UPDATE P_Name 
+        SET 
+        name = '$name',
+        WHERE id = $id";
+        mysqli_query($this->conn, $qry);
     }
 }
 

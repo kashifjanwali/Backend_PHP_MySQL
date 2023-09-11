@@ -10,13 +10,20 @@ $new_name = new City();
 if ($_POST) {
     $pid = $_POST['id'];
     $n = $_POST['name'];
-    $new_name->addName($n);
+
+    if ($p_id) {
+        $new_name->updateName($ID, $n);
+    } else {
+        $new_name->addName($n);
+    }
     header("Location: index.php");
 }
 
 $pid = $_GET['id'] ?? null;
-if($pid){
-    $pid =$
+if ($pid) {
+    $id_data = $new_name->getPid($pid);
+} else {
+    $id_data = array();
 }
 
 ?>
@@ -44,7 +51,8 @@ if($pid){
             <form method="post" class="form">
                 <div class="mb-4 mx-auto w-50">
                     <label for="p-name" class="form-label">Enter your Name</label>
-                    <input type="text" id="p-name" name="name" class="form-control">
+                    <input type="text" id="p-name" name="name" class="form-control"
+                        value="<?php echo $id_data['name'] ?? null ?>">
                 </div>
 
                 <input type="hidden" name="id" value="<?php echo $pid ?>">
