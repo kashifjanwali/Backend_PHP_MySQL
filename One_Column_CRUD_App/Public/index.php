@@ -43,6 +43,7 @@ $all_names = $new_name->getName();
                         <td>
                             <?php echo $name['name']; ?>
                         </td>
+
                         <td>
                             <a href="addEdit.php?id=<?php echo $name['id'] ?>" class="btn btn-success">Edit</a>
                             <a href="delete.php?id=<?php echo $name['id']; ?>" class="btn btn-danger">Delete</a>

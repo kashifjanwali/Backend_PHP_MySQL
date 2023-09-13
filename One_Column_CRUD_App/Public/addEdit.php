@@ -11,8 +11,8 @@ if ($_POST) {
     $pid = $_POST['id'];
     $n = $_POST['name'];
 
-    if ($p_id) {
-        $new_name->updateName($ID, $n);
+    if ($pid) {
+        $new_name->updateName($pid, $n);
     } else {
         $new_name->addName($n);
     }
@@ -21,9 +21,9 @@ if ($_POST) {
 
 $pid = $_GET['id'] ?? null;
 if ($pid) {
-    $id_data = $new_name->getPid($pid);
+    $id_data = $new_name->getID($pid);
 } else {
-    $id_data = array();
+    $id_data = $new_name = array();
 }
 
 ?>

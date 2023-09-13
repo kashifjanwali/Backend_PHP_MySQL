@@ -28,12 +28,12 @@ class City
 
 
     // get ID
-    function getPid($p_id)
+    function getID($id)
     {
-        $query = "SELECT * FROM P_Name WHERE id = $p_id";
-        $record = mysqli_query($this->conn, $query);
-        $all_records = mysqli_fetch_assoc($record);
-        return $all_records;
+        $query = "SELECT * FROM P_Name WHERE id = $id";
+        $run_query = mysqli_query($this->conn, $query);
+        $all_names = mysqli_fetch_assoc($run_query);
+        return $all_names;
     }
 
 
@@ -49,8 +49,7 @@ class City
     function updateName($id, $name)
     {
         $qry = "UPDATE P_Name 
-        SET 
-        name = '$name',
+        SET name = '$name'
         WHERE id = $id";
         mysqli_query($this->conn, $qry);
     }
